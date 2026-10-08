@@ -1,0 +1,48 @@
+[style name="style"]
+join amelia left [animation="Slide From Left" wait="true"]
+Not_Name: Hey, you! You!
+join main_character right [animation="Slide From Right" wait="true" mirrored="true"]
+main_character: Me...?
+Not_Name: Yeah, you. I haven't met you. Tell me who you are.
+main_character: (Isn't this a university? I thought people minded more their business.)
+- You should already know who I am.
+	Not_Name: I don't know. It's exciting to meet new people.
+	Not_Name: Are you someone famous?
+- I'm W-4-VE
+	Not_Name: That sounds like a password, not a name.
+	Not_Name: You're messing with me, are you?
+	main_character: (I need to start thinking about changing my name)
+amelia: Nevermind, actually. I'm Amelia, nice to meet you.
+amelia: What are you doing here this late?
+- I need to achieve the task my maker gave me.
+	amelia: Huh? You're religious or something?
+	main_character: Nevermind.
+	amelia: Weirdo.
+	leave amelia [animation="Slide To Left" wait="true"]
+	main_character: (I need to get better at this human behaviour thing.)
+	leave main_character [animation="Slide To Right" wait="true"]
+	[end_timeline]
+- I just wanted to chill out between classes. | [if {Dictionary.Chill} == true] [else="disable" alt_text="(I need a more casual way to talk)"]
+	amelia: Good idea.
+	amelia: Well, next time you can join the radio club to spend some free time here at the university.
+	amelia: Maybe even make some new friends since you're new.
+	if {Dictionary.Sorry} == false:
+		main_character: I've never been very good at that.
+		amelia: It's easy. Just say what you're thinking and be straightforward.
+		amelia: If you're happy about something, say it. If you're tired of someone's behaviour, tell them. If you're sorry about something, express it.
+		amelia: Don't be like those folks who hide their smiles. Who cares what others think?
+		main_character: You're right. I'm s-sorry.
+		amelia: Never apologised for anything? You must've been a troublesome kid. Repeat after me from the bottom of your heart\: "Sorry".
+		main_character: From my mechanical heart, I'm deeply sorry.
+		set {Dictionary.Sorry} = true
+		amelia: A bit formal, but sure. Sounds sincere enough.
+		do GameManager.set_dialogue_wave(true)
+	main_character: And where is that radio club you say I can join?
+	amelia: Uh, take a look around.
+	amelia: There's literally a desk full of microphones.
+	main_character: Yeah, sorry.
+	amelia: There we go!
+	do GameManager.add_wave()
+leave amelia [animation="Slide To Left" wait="true"]
+leave main_character [animation="Slide To Right" wait="true"]
+do GameManager.set_dialogue_on(false)

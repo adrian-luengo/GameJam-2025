@@ -1,0 +1,25 @@
+[style name="style"]
+do GameManager.set_dialogue_on(true)
+join Maker center [animation="Slide In Up" wait="true"]
+Maker: You're finally awake. How great!
+Not_Name: Huh...? What...?
+Maker: Oh right, you must be very confused. I am your maker, pleased to "meat" you W-4-VE!
+main_character: My... maker?
+Maker: That's right! Now that you are up and running I have set a task of paramount importance to you.
+Maker: Go greet the director before he leaves in 5 minutes.
+main_character: Will I be able to... talk to him?
+[signal arg="show"]
+Maker: You first need to gain some rapport among my classmates. That guard really dislikes people with few connections. This here will show you how popular you are.
+[signal arg="hide"]
+Maker: Remember this. If you ever mess up and end up losing popularity, just wave at your frinds and... TA-DA, back to being the soul of the party.
+Maker: Everyone will be talking about you and even the director will take interest!
+Maker: Now go, my child, my whole life depends on you. No pressure~
+leave Maker [animation="Slide Out Up" wait="true"]
+[wait time="1.0" hide_text="false" skippable="true"]
+join main_character center [animation="Fade In" length="0.2" mirrored="true"]
+main_character: ...
+main_character: (What an odd awakening... Well, I have nothing else to do so I better get going.)
+set {Events.talked_to_maker} = true
+leave main_character [animation="Fade Out" length="0.2" wait="true"]
+do GameManager.set_dialogue_on(false)
+[end_timeline]

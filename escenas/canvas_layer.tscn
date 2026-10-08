@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://dg1dmncrf56jj"]
+
+[ext_resource type="Texture2D" uid="uid://c0j30ax3ti6v6" path="res://assets/pixelated-hand.png" id="1_5ior0"]
+[ext_resource type="Texture2D" uid="uid://bwsgp161midxk" path="res://assets/temporizador.png" id="1_7658k"]
+[ext_resource type="FontFile" uid="uid://ctvo0smvyv8x7" path="res://assets/FONTs/Mr. Junker MSX2 Mono.ttf" id="2_w8mde"]
+[ext_resource type="PackedScene" uid="uid://clwy318gtiyom" path="res://escenas/prefabs/waving-hand.tscn" id="3_er8nw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eq8bp"]
+font_color = Color(0.7137255, 0, 0, 1)
+outline_color = Color(0.712692, 2.9359758e-06, 5.7756904e-07, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ior0"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bun6n"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Temporizador" type="Sprite2D" parent="."]
+position = Vector2(79.81251, 44.8125)
+scale = Vector2(0.05722583, 0.0576452)
+texture = ExtResource("1_7658k")
+
+[node name="timer" type="Label" parent="."]
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 59.0
+offset_bottom = 43.0
+scale = Vector2(2.84, 2.84)
+theme_override_fonts/font = ExtResource("2_w8mde")
+theme_override_font_sizes/font_size = 50
+text = "5:00"
+label_settings = SubResource("LabelSettings_eq8bp")
+
+[node name="PixelatedHand" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1047, 69)
+scale = Vector2(0.27148438, 0.25)
+texture = ExtResource("1_5ior0")
+
+[node name="Waving_hand" parent="." instance=ExtResource("3_er8nw")]
+position = Vector2(1092, 97)
+scale = Vector2(3, 3)
+
+[node name="waves" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.080000006
+anchor_top = 0.035
+anchor_right = 0.080000006
+anchor_bottom = 0.035
+offset_left = 995.83997
+offset_top = 20.32
+offset_right = 1005.83997
+offset_bottom = 43.32
+scale = Vector2(1.515, 1.515)
+text = "0"
+label_settings = SubResource("LabelSettings_5ior0")
+horizontal_alignment = 2
+
+[node name="GeminiGeneratedImage2Vzfye2Vzfye2Vzf" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(147, 76)
+scale = Vector2(0.113376625, 0.090073496)
+texture = SubResource("CompressedTexture2D_bun6n")

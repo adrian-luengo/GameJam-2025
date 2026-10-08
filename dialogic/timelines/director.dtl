@@ -1,0 +1,16 @@
+[style name="style"]
+do GameManager.set_dialogue_on(true)
+join director left [animation="Slide From Left" wait="true"]
+director: So. You're the student everyone around keeps mentioning.
+join main_character right [animation="Slide From Right" wait="true" mirrored="true"]
+main_character: It's... me? In the flesh.
+director: You're even able to make jokes. How impressive for a robot.
+main_character: Sorry, but you must've got the wrong idea. I'm human.
+director: No need to fake anymore in front of me, boy. You might have fooled the rest, but not me.
+director: But still. I was curious of how far you would get. You even managed to get past my unpaid security guard.
+director: And here you are.
+director: Tell the student that made you that he's getting the greatest of grades. I'll talk with their professor.
+leave director [animation="Slide To Left" wait="true"]
+main_character: I will make sure your message is reached. I'm sure my creator will be happy.
+leave main_character [animation="Slide To Right" wait="true"]
+do GameManager.set_dialogue_on(false)

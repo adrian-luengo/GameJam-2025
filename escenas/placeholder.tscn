@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d21rj0cir1rjm"]
+
+[ext_resource type="Script" uid="uid://5at8likvninw" path="res://scripts/placeholder.gd" id="1_c40o3"]
+
+[node name="Placeholder" type="Node"]
+script = ExtResource("1_c40o3")

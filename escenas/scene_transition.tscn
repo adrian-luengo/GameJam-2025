@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://tkc34nooa3by"]
+
+[ext_resource type="Script" uid="uid://c1gp10rjkuyn3" path="res://scripts/scene_transition.gd" id="1_365fv"]
+[ext_resource type="Shader" uid="uid://c3cwlrtjwkhsv" path="res://shaders/sceneTransitionShader.gdshader" id="2_a6kqm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ojjbb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l47ma"]
+noise = SubResource("FastNoiseLite_ojjbb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nyumb"]
+shader = ExtResource("2_a6kqm")
+shader_parameter/progress = 0.0
+shader_parameter/pixel_size = 6.01
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_l47ma")
+
+[node name="SceneTransition" type="CanvasLayer"]
+script = ExtResource("1_365fv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_nyumb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

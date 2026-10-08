@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cktni4m2m3umw"]
+
+[ext_resource type="Texture2D" uid="uid://bfvxoqsh1yl7a" path="res://assets/Signo-de-interrogacion.png" id="1_remsc"]
+[ext_resource type="Texture2D" uid="uid://br27xnuge61r8" path="res://assets/pixelated-speech-bubble.png" id="9_ccifq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjstk"]
+atlas = ExtResource("1_remsc")
+region = Rect2(0, 0, 1200, 675)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a1cvk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjstk")
+}],
+"loop": false,
+"name": &"interrogacion",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"nada",
+"speed": 5.0
+}]
+
+[node name="SaludoMeme" type="AnimatedSprite2D"]
+scale = Vector2(0.015, 0.015)
+sprite_frames = SubResource("SpriteFrames_a1cvk")
+animation = &"interrogacion"
+
+[node name="PixelatedSpeechBubble" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-9.999999, 19.999998)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("9_ccifq")

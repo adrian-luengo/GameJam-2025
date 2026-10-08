@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://volxcgn2wx3q"]
+
+[ext_resource type="Texture2D" uid="uid://cy0nrccvg0p8s" path="res://assets/ImageToStl.com_happy-waving/frame_0001.png" id="1_rrkcq"]
+[ext_resource type="Texture2D" uid="uid://tjkq12w0o83e" path="res://assets/ImageToStl.com_happy-waving/frame_0002.png" id="2_q5oeu"]
+[ext_resource type="Texture2D" uid="uid://dd5ippwi1l7af" path="res://assets/ImageToStl.com_happy-waving/frame_0003.png" id="3_w46kr"]
+[ext_resource type="Texture2D" uid="uid://bpc0sij34um2g" path="res://assets/ImageToStl.com_happy-waving/frame_0004.png" id="4_va0ev"]
+[ext_resource type="Texture2D" uid="uid://cuuj3ywsbask7" path="res://assets/ImageToStl.com_happy-waving/frame_0005.png" id="5_0gx1x"]
+[ext_resource type="Texture2D" uid="uid://inakffcsg450" path="res://assets/ImageToStl.com_happy-waving/frame_0006.png" id="6_be03w"]
+[ext_resource type="Texture2D" uid="uid://bop8fn120tkux" path="res://assets/ImageToStl.com_happy-waving/frame_0007.png" id="7_vqcjk"]
+[ext_resource type="Texture2D" uid="uid://6y0yvu4gexu6" path="res://assets/ImageToStl.com_happy-waving/frame_0008.png" id="8_o7ejr"]
+[ext_resource type="Texture2D" uid="uid://br27xnuge61r8" path="res://assets/pixelated-speech-bubble.png" id="9_q5oeu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a1cvk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"nada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rrkcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_q5oeu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w46kr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_va0ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0gx1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_be03w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vqcjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o7ejr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_rrkcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_q5oeu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w46kr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_va0ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0gx1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_be03w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vqcjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o7ejr")
+}],
+"loop": false,
+"name": &"saludo",
+"speed": 30.0
+}]
+
+[node name="SaludoMeme" type="AnimatedSprite2D"]
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_a1cvk")
+animation = &"nada"
+
+[node name="PixelatedSpeechBubble" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-9.999999, 19.999998)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_q5oeu")

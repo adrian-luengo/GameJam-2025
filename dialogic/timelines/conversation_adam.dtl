@@ -1,0 +1,38 @@
+[style name="style"]
+do GameManager.set_dialogue_on(true)
+join adam left [animation="Slide From Left"]
+Not_Name: Hello. Are you new here?
+join main_character right [animation="Slide From Right" mirrored="true"]
+main_character: Uh, yeah. Who are you?
+adam: Call me Adam. Glad to meet a new face.
+adam: How are you?
+main_character: (I should mind my words...)
+- print("Hello world")
+	adam: What?
+	main_character: Sorry, a joke.
+	adam: Okay...
+	leave adam [animation="Slide To Left" wait="true"]
+	update main_character center
+	main_character: (I messed that one up...)
+	leave main_character [animation="Slide To Right"]
+	do GameManager.subtract_wave(1)
+- Nice, what about you?
+	adam: Well, we're both kinda newbies here. So here's a piece of advice\: take it in your own rhythm and you'll be fine.
+	adam: If you feel overwhelmed there's always the option to chill out from time to time.
+	adam: It's easy to say, of course, but it's just as easy to forget.
+	if {Dictionary.Chill} == false:
+		main_character: Chill?
+		adam: You know, listening to your body and giving importance only to the things that matter.
+		adam: Sheesh. Never been relaxed in your life or anything?
+		main_character: (So chill means... relaxed. Got it.)
+		do GameManager.set_dialogue_wave(true)
+		set {Dictionary.Chill} = true
+	main_character: Thank you for the advice.
+	adam: No problem. See ya.
+	leave adam [animation="Slide To Left" wait="true"]
+	update main_character center
+	main_character: (My own rhythm, hm?)
+	main_character: (But I have a task to fulfill and the day is still progressing...)
+	leave main_character [animation="Slide To Right" wait="true"]
+	do GameManager.add_wave()
+do GameManager.set_dialogue_on(false)

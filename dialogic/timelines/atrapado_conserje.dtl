@@ -1,0 +1,27 @@
+[style name="style"]
+do GameManager.set_dialogue_on(true)
+join conserje center
+if {Events.atrapado_conserje} == true:
+	conserje: YOU AGAIN?!
+	conserje: Can't you see I'm mopping the floor?!?!
+else:
+	conserje: HEY YOU!
+	conserje: Watch your steps, I'm working here.
+	set {Events.atrapado_conserje} = true
+if {Dictionary.Sorry} == true:
+	- I'm sorry...
+		conserje: Hmph. At least this one apologises.
+		conserje: All I ask for is for a bit of formality.
+		if {Dictionary.Formality} == false:
+			main_character: Could you elaborate?
+			conserje: I don't know.
+			conserje: Being treated with respect, maybe even getting a compliment from now and then woludn't be bad.
+			main_character: (I guess that's a way to convince humans.)
+			set {Dictionary.Formality} = true
+conserje: Try to be more careful next time. Do you think this floor cleans itself?
+if {Dictionary.Sorry} == false:
+	do GameManager.subtract_wave(1)
+leave conserje [animation="Slide To Left" wait="true"]
+main_character: (Is every non-student as angry? The janitor's salary must be non-existent.)
+leave main_character [animation="Slide To Right" wait="true"]
+do GameManager.set_dialogue_on(false)

@@ -1,0 +1,140 @@
+[gd_scene load_steps=14 format=3 uid="uid://lwnwwko7vq3n"]
+
+[ext_resource type="Script" uid="uid://b3qfxeeakorho" path="res://scripts/menu.gd" id="1_37x5u"]
+[ext_resource type="Texture2D" uid="uid://cr1ouykfb68ws" path="res://assets/entradaUPM.png" id="2_pg16i"]
+[ext_resource type="FontFile" uid="uid://ctvo0smvyv8x7" path="res://assets/FONTs/Mr. Junker MSX2 Mono.ttf" id="3_gglsf"]
+[ext_resource type="FontFile" uid="uid://dhw7t7fjsrcep" path="res://assets/FONTs/Abaddon Bold.ttf" id="3_pg16i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gglsf"]
+bg_color = Color(0.39075273, 0.3777332, 0.99303716, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg6t6"]
+bg_color = Color(0.6, 0.9490196, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myo1p"]
+bg_color = Color(0.39215687, 0.3764706, 0.99215686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjkoc"]
+bg_color = Color(0.6751967, 0.7131337, 0.9983279, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmamb"]
+bg_color = Color(0.39215687, 0.3764706, 0.99215686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cexf4"]
+bg_color = Color(0.6745098, 0.7137255, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8en0t"]
+bg_color = Color(0.39215687, 0.3764706, 0.99215686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3u24"]
+bg_color = Color(0.9999997, 0.12457236, 0.08649377, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lotp"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="MenuCanvas" type="CanvasLayer"]
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_right = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_37x5u")
+
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pg16i")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 280.0
+offset_top = 137.0
+offset_right = -260.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6156863)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -227.5
+offset_right = 128.0
+offset_bottom = 205.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Jugar" type="Button" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_gglsf")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_gglsf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jg6t6")
+text = "Play"
+
+[node name="Opciones" type="Button" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_gglsf")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_myo1p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tjkoc")
+text = "Options"
+
+[node name="Creditos" type="Button" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_gglsf")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmamb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cexf4")
+text = "Credits"
+
+[node name="Salir" type="Button" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("3_gglsf")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_8en0t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k3u24")
+text = "Exit
+"
+
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -265.0
+offset_top = 18.0
+offset_right = 265.0
+offset_bottom = 131.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_pg16i")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_0lotp")
+text = ">Hello, World!"
+
+[connection signal="pressed" from="Menu/ColorRect/VBoxContainer/Jugar" to="Menu" method="_on_jugar_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/VBoxContainer/Opciones" to="Menu" method="_on_opciones_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/VBoxContainer/Creditos" to="Menu" method="_on_creditos_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/VBoxContainer/Salir" to="Menu" method="_on_salir_pressed"]

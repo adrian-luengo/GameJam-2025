@@ -1,0 +1,127 @@
+[gd_scene load_steps=12 format=3 uid="uid://ccqlivdrtj63s"]
+
+[ext_resource type="Script" uid="uid://dkupxrvfrb8oi" path="res://scripts/menu_opc.gd" id="1_o5u03"]
+[ext_resource type="Texture2D" uid="uid://cr1ouykfb68ws" path="res://assets/entradaUPM.png" id="2_fidmj"]
+[ext_resource type="FontFile" uid="uid://ctvo0smvyv8x7" path="res://assets/FONTs/Mr. Junker MSX2 Mono.ttf" id="3_mwnhe"]
+[ext_resource type="FontFile" uid="uid://dhw7t7fjsrcep" path="res://assets/FONTs/Abaddon Bold.ttf" id="4_i4rrl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gglsf"]
+bg_color = Color(0.39075273, 0.3777332, 0.99303716, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg6t6"]
+bg_color = Color(0.6745098, 0.7137255, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myo1p"]
+bg_color = Color(0.39215687, 0.3764706, 0.99215686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjkoc"]
+bg_color = Color(0.6751967, 0.7131337, 0.9983279, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8en0t"]
+bg_color = Color(0.39215687, 0.3764706, 0.99215686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3u24"]
+bg_color = Color(0.9999997, 0.12457236, 0.08649377, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lotp"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="MenuOp" type="CanvasLayer"]
+
+[node name="MenuOpc" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5u03")
+
+[node name="TextureRect" type="TextureRect" parent="MenuOpc"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_right = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fidmj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="MenuOpc"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 280.0
+offset_top = 137.0
+offset_right = -260.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6156863)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuOpc/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -227.5
+offset_right = 128.0
+offset_bottom = 205.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="MenuOpc/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_mwnhe")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_gglsf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jg6t6")
+text = "Volume
+"
+
+[node name="Opciones" type="Button" parent="MenuOpc/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_mwnhe")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_myo1p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tjkoc")
+text = "Dictionary
+"
+
+[node name="Atras" type="Button" parent="MenuOpc/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("3_mwnhe")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_8en0t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k3u24")
+text = "Back
+"
+
+[node name="Label" type="Label" parent="MenuOpc"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -265.0
+offset_top = 18.0
+offset_right = 265.0
+offset_bottom = 131.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_i4rrl")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_0lotp")
+text = ">Hello, World!"
+
+[connection signal="pressed" from="MenuOpc/ColorRect/VBoxContainer/Button" to="MenuOpc" method="_on_button_pressed"]
+[connection signal="pressed" from="MenuOpc/ColorRect/VBoxContainer/Opciones" to="MenuOpc" method="_on_opciones_pressed"]
+[connection signal="pressed" from="MenuOpc/ColorRect/VBoxContainer/Atras" to="MenuOpc" method="_on_atras_pressed"]

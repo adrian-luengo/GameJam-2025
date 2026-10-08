@@ -1,0 +1,32 @@
+[style name="style"]
+do GameManager.set_dialogue_on(true)
+set {Events.superado_security} = false
+join main_character right [animation="Slide From Right" wait="true" mirrored="true"]
+join security left [animation="Slide From Left" wait="true"]
+security: This area is restricted.
+- I'm just passing by.
+	security: Then you can "pass by" somewhere else.
+	leave security [animation="Slide To Left" wait="true"]
+	main_character: (I have to do what he says. He keeps looking at me.)
+	leave main_character [animation="Slide To Right" wait="true"]
+	do GameManager.subtract_wave(1)
+
+- I have business with the director.
+	security: Yeah, don't care 'bout buncha lies. Leave or face expulsion.
+	leave security [animation="Slide To Left" wait="true"]
+	main_character: (But they're not lies.)
+	main_character: (Still, I have to do what he says. He keeps looking at me.)
+	leave main_character [animation="Slide To Right" wait="true"]
+	do GameManager.subtract_wave(1)
+
+- Good afternoon, sir. May I pass? | [if {Dictionary.Formality} == true] [else="disable" alt_text="(I should find a more convincing way.)"]
+	security: ...
+	security: Hm.
+	main_character: What a nice pair of glasses you've got there.
+	security: Whatever. I don't even get paid.
+	leave security [animation="Slide To Left" wait="true"]
+	main_character: (My path to achieve my task is clear.)
+	leave main_character [animation="Slide To Right" wait="true"]
+	set {Events.superado_security} = true
+do GameManager.set_dialogue_on(false)
+[end_timeline]

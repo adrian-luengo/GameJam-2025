@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8250hab7pfio"]
+
+[ext_resource type="Texture2D" uid="uid://ds5epf7mnuy2l" path="res://assets/Edits/arrowSignal.png" id="1_ueyjt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gmsi"]
+bg_color = Color(0.15686275, 0.15686275, 0.15686275, 0.49803922)
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="Animation" id="Animation_1gmsi"]
+resource_name = "popUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PopUpPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 1),
+"transitions": PackedFloat32Array(2.297397, 4.2870927, 1),
+"update": 0,
+"values": [Vector2(-226, 100), Vector2(51, 100), Vector2(10, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_ueyjt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PopUpPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226, 230)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dhnbg"]
+_data = {
+&"RESET": SubResource("Animation_ueyjt"),
+&"popUp": SubResource("Animation_1gmsi")
+}
+
+[node name="PopUpControles" type="Control"]
+layout_mode = 3
+anchor_right = 0.20300001
+anchor_bottom = 1.0
+offset_right = -233.85602
+grow_vertical = 2
+
+[node name="PopUpPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = -94.0
+offset_right = -14.0
+offset_bottom = 95.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1gmsi")
+
+[node name="ControlsContainer" type="VBoxContainer" parent="PopUpPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PopUpPanel/ControlsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Press 'E' to chat with other
+people"
+
+[node name="Label2" type="Label" parent="PopUpPanel/ControlsContainer"]
+layout_mode = 2
+text = "Use 'Space bar' to wave at 
+your friends!!"
+
+[node name="Label3" type="Label" parent="PopUpPanel/ControlsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Move with 'W A S D'"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dhnbg")
+}
+autoplay = "popUp"
+
+[node name="ArrowSignal" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1051, -142.99998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_ueyjt")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://3u37ram8a2bl"]
+
+[ext_resource type="Script" uid="uid://hjprk8c3s82i" path="res://scripts/segurata.gd" id="1_frr42"]
+
+[node name="Enemigo" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent_2d")]
+script = ExtResource("1_frr42")
+navigation_agent_2d = NodePath("NavigationAgent2D")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 15.0
+path_max_distance = 20.0
+simplify_path = true
+avoidance_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

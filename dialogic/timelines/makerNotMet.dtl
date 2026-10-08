@@ -1,0 +1,7 @@
+[style name="style"]
+do GameManager.set_dialogue_on(true)
+join main_character center [animation="Slide From Left" wait="true"]
+main_character: (I should talk to that mysterious person.)
+leave main_character [animation="Slide To Right" wait="true"]
+[end_timeline]
+do GameManager.set_dialogue_on(false)
